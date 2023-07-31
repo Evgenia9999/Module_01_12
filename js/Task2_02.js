@@ -3,20 +3,27 @@
 const cart = {
   items: [],
 
+  count: 0,
+
+  discount: 0,
+
+  get setDiscount () {
+  },
+
   set setDiscount(promocode) {
     if (promocode === 'METHED') {
         this.discount = 15;
     } else if (promocode === 'NEWYEAR') {
         this.discount = 21;
+    } else {
+        this.discount = 0;
     }
   },
 
   get totalPrice() {
+    console.log(this.discount);
     return this.calculateItemPrice() * 0.01 * (100 - this.discount);
   },
-  
-
-  count: 0,
 
   add(nameItem, priceItem, countItem) {
     return this.items.push({nameItem, priceItem, countItem});
@@ -39,6 +46,7 @@ const cart = {
   clear() {
     this.items = [];
     this.count = 0;
+    this.discount = 0;
   },
 
   print() {
@@ -48,11 +56,15 @@ const cart = {
   },
 };
 
-cart.setDiscount = 'NEWYEAR'
+cart.setDiscount = 'METHED'
 cart.add('toy', 5, 2);
 cart.add('doll', 3, 1);
 cart.add('book', 4, 5);
 
 cart.print();
+cart.clear()
+cart.print();
+
+
 
 
