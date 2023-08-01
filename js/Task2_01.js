@@ -10,11 +10,8 @@ const rectangle = {
 
     set width(value1) {
             
-        if (value1 === 'string'){
-            return this._width;
-        } else {
+        if (typeof value1 === 'number'){
             this._width = value1;
-            console.log(1); 
         }
     },
 
@@ -23,12 +20,9 @@ const rectangle = {
 
     set height(value2) {
     
-        if (value2 === 'string'){
-            return this._height;
-        } else {
+        if (typeof value2 === 'number'){
             this._height = value2;
-            console.log(1); 
-        } 
+        }
     },
 
     get area () {
@@ -41,8 +35,8 @@ const rectangle = {
 }
 
 
-rectangle._width = 4;
-rectangle._height = 3;
+rectangle.width = 3;
+rectangle.height = '';
 
 console.log(rectangle._width);
 console.log(typeof rectangle._width);
@@ -50,6 +44,7 @@ console.log(rectangle._height);
 console.log(typeof rectangle._height);
 console.log(rectangle.area);
 console.log(rectangle.perimeter);
+
 
 
 
